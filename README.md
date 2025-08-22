@@ -1,4 +1,4 @@
-# 🧠 MindEase – AI-powered Depression Screening & Mental Wellness Platform (📌 Hackathon: COMSOC HACKX)
+# 🧠 MindEase – AI-powered Depression Screening & Mental Wellness Platform (Hackathon: COMSOC HACKX)
 
 MindEase is an AI-powered **mental health screening** and **wellness platform** designed to help users assess their depression levels early using the clinically validated **PHQ-9 questionnaire**. It leverages **machine learning** and **BERT-based NLP models** to analyze responses and predict depression severity accurately, providing real-time results and personalized recommendations.
 
