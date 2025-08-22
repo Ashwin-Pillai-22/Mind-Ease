@@ -54,19 +54,19 @@ MindEase is an AI-powered **mental health screening** and **wellness platform** 
 
 📈 Future Enhancements
 
--- 📱 Mobile App – Cross-platform app for accessibility.
+-📱 Mobile App – Cross-platform app for accessibility.
 
--- 🗣️ Multilingual Support – Reach non-English speakers globally.
+- 🗣️ Multilingual Support – Reach non-English speakers globally.
 
--- 🎮 Gamified Wellness – Self-care tips and exercises.
+- 🎮 Gamified Wellness – Self-care tips and exercises.
 
--- 🧩 Mood Tracking Dashboard – Track progress visually.
+- 🧩 Mood Tracking Dashboard – Track progress visually.
 
--- 🤝 NGO & Healthcare Partnerships – Deploy at scale.
+- 🤝 NGO & Healthcare Partnerships – Deploy at scale.
 
 ---
 
 ## 📧 Contact
--- Project Lead: Ashwin Pillai
--- 📩 Email: ashwin.pillai.005@gmail.com
+- Project Lead: Ashwin Pillai
+- 📩 Email: ashwin.pillai.005@gmail.com
 
