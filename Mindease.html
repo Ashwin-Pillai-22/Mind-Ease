@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindEase - Mental Wellness Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="message" id="message"></div>
+    
+    <!-- Login Portal -->
+    <div class="container">
+        <div class="login-container" id="loginContainer">
+            <div class="login-card">
+                <div class="login-form">
+                    <h1>Welcome Back</h1>
+                    <p class="tagline">Continue your MindEase journey</p>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" id="login-email" required>
+                        <label for="login-email">Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" required>
+                        <label for="login-password">Password</label>
+                    </div>
+                    
+                    <button class="btn" id="login-btn">Login</button>
+                    
+                    <div class="links">
+                        <a href="#">Forgot password?</a>
+                        <button class="toggle-register" id="toggleRegister">Create an account</button>
+                    </div>
+                </div>
+                
+                <div class="welcome-side">
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4a00e0">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <h1>MindEase</h1>
+                    <p>Your mental wellness companion</p>
+                </div>
+            </div>
+            
+            <div class="login-card register-card">
+                <div class="login-form">
+                    <h1>Create Account</h1>
+                    <p class="tagline">Begin your MindEase journey today</p>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-name" required>
+                        <label for="register-name">Full Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="register-email" required>
+                        <label for="register-email">Email</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" required>
+                        <label for="register-password">Password</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <i class="fas fa-redo"></i>
+                        <input type="password" id="register-confirm" required>
+                        <label for="register-confirm">Confirm Password</label>
+                    </div>
+                    
+                    <button class="register-btn" id="register-btn">Register</button>
+                    
+                    <button class="toggle-login" id="toggleLogin">Already have an account? Login</button>
+                </div>
+                
+                <div class="welcome-side">
+                    <div class="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#8e2de2">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <h1>MindEase</h1>
+                    <p>Start your wellness journey</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- App Container (Hidden until login) -->
+    <div class="app-container" id="appContainer">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container mx-auto flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold">MindEase</h1>
+                    <p class="text-white opacity-90">Your Mental Wellness Companion</p>
+                </div>
+                <button id="logoutBtn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="app-content">
+            <!-- User Profile Section -->
+            <div class="profile-card fade-in">
+                <div class="profile-pic">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h2 id="userName">John Doe</h2>
+                    <p id="userEmail">john.doe@example.com</p>
+                    <p>Member since: <span id="joinDate">Jan 2023</span></p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="sessionsCount">12</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="streakCount">7</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="wellnessScore">84</div>
+                            <div class="stat-label">Wellness</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wellness Tools Section -->
+            <div class="dashboard-section fade-in">
+                <div class="section-title">
+                    <h2>Wellness Tools</h2>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card" id="depressionScreeningBtn">
+                        <div class="tool-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Depression Screening</h3>
+                        <p>Take a clinically validated assessment to understand your mental health status</p>
+                        <button class="btn">Start Screening</button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Mindfulness Meditation</h3>
+                        <p>Guided sessions to reduce stress and improve focus</p>
+                        <button class="btn">Start Session</button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Journal</h3>
+                        <p>Reflect on your thoughts and emotions with guided prompts</p>
+                        <button class="btn">Start Writing</button>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracker</h3>
+                        <p>Visualize your mental wellness journey over time</p>
+                        <button class="btn">View Progress</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Screening History -->
+            <div class="dashboard-section fade-in">
+                <div class="section-title">
+                    <h2>Screening History</h2>
+                </div>
+                <div id="screeningHistory">
+                    <div class="history-item">
+                        <div class="history-date">July 14, 2023</div>
+                        <div class="history-score">PHQ-9: 8</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-date">July 7, 2023</div>
+                        <div class="history-score">PHQ-9: 10</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="history-date">June 30, 2023</div>
+                        <div class="history-score">PHQ-9: 12</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Depression Screening Modal -->
+    <div class="modal" id="screeningModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Depression Screening (PHQ-9)</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Over the <strong>last 2 weeks</strong>, how often have you been bothered by any of the following problems?</p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="screeningProgress"></div>
+                </div>
+                
+                <div id="questionsContainer">
+                    <!-- Questions will be inserted here -->
+                </div>
+                
+                <div class="results-container" id="resultsContainer">
+                    <h2>Your Screening Results</h2>
+                    <div class="score-display" id="totalScore">0</div>
+                    <div class="severity-indicator" id="severityLevel">Minimal</div>
+                    <div class="score-description" id="severityDescription">
+                        Your responses suggest minimal signs of depression.
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h3>Recommendations</h3>
+                        <ul class="recommendation-list" id="recommendationList">
+                            <li><i class="fas fa-check-circle"></i> Continue practicing self-care activities</li>
+                            <li><i class="fas fa-check-circle"></i> Maintain social connections</li>
+                            <li><i class="fas fa-check-circle"></i> Engage in regular physical activity</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="btn" id="saveResultsBtn">Save Results to Profile</button>
+                </div>
+                
+                <button class="btn" id="nextQuestionBtn" style="display: none;">Next Question</button>
+                <button class="btn" id="submitScreeningBtn" style="display: none;">Submit Screening</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2023 MindEase. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
