@@ -52,7 +52,7 @@ MindEase is an AI-powered **mental health screening** and **wellness platform** 
 
 ---
 
-📈 Future Enhancements
+## 📈 Future Enhancements
 
 -📱 Mobile App – Cross-platform app for accessibility.
 
